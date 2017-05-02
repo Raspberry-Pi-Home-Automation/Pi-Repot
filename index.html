@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content = "height = device-height, width = 420, user-scalable = no" /> 
+	<title>WebIOPi getData Demo</title>
+	<script type="text/javascript" src="/webiopi.js"></script>
+	<script type="text/javascript">
+	webiopi().ready(function() {
+		var content, button;
+		content = $("#content");
+
+		// create a "LED" labeled button for GPIO 25
+		button = webiopi().createGPIOButton(23, "LED1", mousedown);
+		content.append(button); // append button to content div
+               		
+		webiopi().refreshGPIO(true);
+	});
+		
+		// Every 2000ms (2 seconds) Call the function to go get the data from Python
+		setInterval ("callMacro_getData()", 2000);{
+		}
+
+		// Go get the Data from the Python Macro getData
+              function callMacro_getData(){
+    			webiopi().callMacro("getData", [], macro_getData_Callback);
+		}
+
+		// Get the Data returned from the Python macro getData
+		function macro_getData_Callback(macro, args, data) {
+
+		//Parse data from python macro getData
+		var i = JSON.parse(data);
+			myDiv0.innerHTML = i[0]
+			myDiv1.innerHTML = i[1]
+			myDiv2.innerHTML = i[2]
+			myDiv3.innerHTML = i[3]
+			myDiv4.innerHTML = i[4]
+			myDiv5.innerHTML = i[5]
+			myDiv6.innerHTML = i[6]
+			myDiv7.innerHTML = i[7]
+			myDiv8.innerHTML = i[8]
+			myDiv9.innerHTML = i[9]
+		}
+             function mousedown()
+            {
+               ledBtn= webiopi().digitalRead(23);
+               if(ledBtn==1)
+               {
+                  webiopi().digitalWrite(23, 0);
+               }
+               else
+               {
+                   webiopi().digitalWrite(23, 1);
+               }             
+            }
+
+	</script>
+	<style type="text/css">
+		button {
+			display: block;
+			margin: 5px 5px 5px 5px;
+			width: 160px;
+			height: 45px;
+			font-size: 24pt;
+			font-weight: bold;
+			color: black;
+		}
+		
+		input[type="range"] {
+			display: block;
+			width: 160px;
+			height: 45px;
+		}
+		
+		#gpio23.LOW {
+			background-color: White;
+		}
+		
+		#gpio23.HIGH {
+			background-color: Blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="content" align="center"></div>
+
+ 	<table align="center" border="1" width="160px"></tr>
+		<tr><td><div id="myDiv0"></div></td></tr>
+		<tr><td><div id="myDiv1"></div></td></tr>	
+		<tr><td><div id="myDiv2"></div></td></tr>
+		<tr><td><div id="myDiv3"></div></td></tr>
+		<tr><td><div id="myDiv4"></div></td></tr>	
+		<tr><td><div id="myDiv5"></div></td></tr>
+		<tr><td><div id="myDiv6"></div></td></tr>
+		<tr><td><div id="myDiv7"></div></td></tr>	
+		<tr><td><div id="myDiv8"></div></td></tr>
+		<tr><td><div id="myDiv9"></div></td></tr>
+ 	</table>
+
+</body>
+</html>
+
