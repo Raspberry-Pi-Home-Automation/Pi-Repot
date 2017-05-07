@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Home Automation - Web Interface</title>
+  <!-- The WebIOPi library-->
+  <script type="text/javascript" src="/webiopi.js"></script>
+  <!-- The controller to interface with the server -->
+  <script type="text/javascript" src="/controller.js"> </script>
+  <style type="text/css">
+        button {
+            display: block;
+            margin: 5px 5px 5px 5px;
+            width: 50%;
+            height: 45px;
+            font-size: 24pt;
+            font-weight: bold;
+            }
+        camButton {
+           background-color: #800000;
+        }
+	#control1 {
+	    margin: 1em;
+	    font-size: 1em;
+	}
+	#control2 {
+	    margin: 1em;
+	    font-size: 1em;
+	}
+	#control3 {
+	    margin: 1em;
+	    font-size: 1em;
+            background-color: #800000;
+	}
+        #gpio23.LOW {
+            background-color: #800000;
+	    color: White;
+        }
+        #gpio23.HIGH {
+            background-color: #33cc33;
+	    color: Black;
+        }
+	#gpio16.LOW {
+            background-color: #800000;
+	    color: White;
+        }
+        #gpio16.HIGH {
+            background-color: #33cc33;
+	    color: Black;
+        }
+        #motionDiv {
+	    font-size: 1.5em;
+	    font-weight: bold;
+	    text-transform: uppercase;
+	}
+	#tempDiv {
+	    font-size: 1.5em;
+	    font-weight: bold;
+	    text-transform: uppercase;
+	}
+	#humidDiv {
+	    font-size: 1.5em;
+	    font-weight: bold;
+	    text-transform: uppercase;
+	}
+	 
+	
+    </style>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/themify-icons.css" rel="stylesheet">
+  <link href='css/dosis-font.css' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body id="page-top" data-spy="scroll" data-target=".side-menu">
+      
+      <div class="container">
+
+        <!-- Start: Control GPIOs -->
+
+        <div class="row me-row content-ct speaker" id="speakers">
+          <h1 class="row-title">Monitor Your Home</h1>
+
+          <div class="col-md-4 col-sm-6 feature">
+            <img src="img/sensor.png" class="speaker-img">
+            <h3>Motion</h3>
+		<p>Has motion been detected in your home?</p>
+		<div id="motionDiv" align="center"></div>
+          </div>
+
+          <div class="col-md-4 col-sm-6 feature">
+            <img src="img/temperature.png" class="speaker-img">
+	    <h3>Temperature</h3>
+	    	<p>The current temperature in your home is: </p>
+		<div id="tempDiv" align="center"></div>
+          </div>
+
+          <div class="col-md-4 col-sm-6 feature">
+            <img src="img/humidity.png" class="speaker-img">
+	    <h3>Humidity</h3>
+		<p>The current humidity level in your home is: </p>
+		<div id="humidDiv" align="center"></div>
+          </div>
+        </div>
+      <!-- End: Control GPIOs -->
+
+
+
+	<!-- Start: Desc -->
+
+        <div class="row me-row content-ct speaker" id="speakers">
+          <h1 class="row-title">Control Your Home</h1>
+
+          <div class="col-md-4 col-sm-6 feature">
+            <img src="img/light.png" class="speaker-img">
+
+	    <div id="control1" align="center"></div>
+            <p>Turn your lamp ON or OFF</p>
+	  </div>
+
+          <div class="col-md-4 col-sm-6 feature">
+            <img src="img/alarm.png" class="speaker-img">
+
+	    <div id="control2" align="center"></div>
+	    <p>Turn your alarm ON or OFF</p>          
+	  </div>
+
+          <div class="col-md-4 col-sm-6 feature">
+            <img src="img/camera.png" class="speaker-img">
+
+            <div id="control3" align="center"></div> 
+	    <p>Take a picture</p> 
+	</div>
+
+        </div>
+        <!-- End: Desc -->
+
+	</div>
+
+      <!-- Start: Footer -->
+      <div class="container-fluid footer">
+        <div class="row contact"> 
+        <div class="row footer-credit">
+          <div class="col-md-6 col-sm-6">
+            <p>&copy; 2015, <a href="http://www.designerdada.com">DesignerDada.com</a> | All rights reserved.</p>
+          </div>
+          <div class="col-md-6 col-sm-6"> 
+            <ul class="footer-menu">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms &amp; Condition</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End: Footer -->
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="js/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/jquery.easing.min.js"></script>
+      <script src="js/scrolling-nav.js"></script>
+<!--      <script src="js/validator.js"></script>-->
+      
+    </body>
+    </html>
