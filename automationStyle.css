@@ -1,0 +1,57 @@
+        button {
+            display: block;
+            margin: 5px 5px 5px 5px;
+            width: 50%;
+            height: 45px;
+            font-size: 24pt;
+            font-weight: bold;
+            }
+       .Default {
+           background-color: #800000;
+           color: White;
+        }
+        #control1 {
+            margin: 1em;
+            font-size: 1em;
+        }
+        #control2 {
+            margin: 1em;
+            font-size: 1em;
+        }
+        #control3 {
+            margin: 1em;
+            font-size: 1em;
+         }
+        #gpio23.LOW {
+            background-color: #800000;
+            color: White;
+        }
+        #gpio23.HIGH {
+            background-color: #33cc33;
+            color: Black;
+        }
+        #gpio16.LOW {
+            background-color: #800000;
+            color: White;
+        }
+        #gpio16.HIGH {
+            background-color: #33cc33;
+            color: Black;
+        }
+
+      #motionDiv {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        #tempDiv {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        #humidDiv {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+

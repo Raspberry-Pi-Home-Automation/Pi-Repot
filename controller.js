@@ -3,28 +3,33 @@ webiopi().ready(function() {
         var button1 = webiopi().createGPIOButton(23, "Light", mousedown);
 
         var buzzBtn = webiopi().createGPIOButton(16, "Alarm", function() {
-                buzzBtn= webiopi().digitalRead(16);
-                if(buzzBtn==1)
-                {
-                   webiopi().digitalWrite(16, 0);
-                }
-                else
-                {
+               buzzBtn = webiopi().digitalRead(16);
+                // Reads the status of the LED pin abd changes it's output
+               if(buzzBtn==1)
+               {
+                  webiopi().digitalWrite(16, 0);
+               }
+               else
+               {
                    webiopi().digitalWrite(16, 1);
-                }
+               }
+
         });
   
-      var camButton = webiopi().createButton("camButton", "Camera", function() {
-                       webiopi().callMacro("setCamera", [],[]);
+      var startCamButton = webiopi().createButton("startCamButton", "Camera", function() {
+                        window.open('http://10.6.23.200:8081');                     
                 });
+      
          // Add buttons to their respective DIVs
         $("#control1").append(button1);
         $("#control2").append(buzzBtn);
-        $("#control3").append(camButton);
+        $("#control3").append(startCamButton);
 
         // pass true to refresh repeatedly of false to refresh once
                 webiopi().refreshGPIO(true);
 });
+
+
 
 // Mouse down function for the LED button
 function mousedown()
@@ -54,9 +59,9 @@ function macro_getData_Callback(macro, args, data) {
     //Parse data from python macro getData
              var i = JSON.parse(data);
                   motionDiv.innerHTML = i[0]
-                  tempDiv.innerHTML = i[1]
-                  humidDiv.innerHTML = i[2]
-                  myDiv3.innerHTML = i[3]
+                  humidDiv.innerHTML = i[1]
+                  tempDiv.innerHTML = i[2]
+
       }
 
 
