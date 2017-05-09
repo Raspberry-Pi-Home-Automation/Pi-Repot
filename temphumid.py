@@ -55,13 +55,6 @@ try:
 	while  True:
     		humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
     		print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
-# else:
- #   print('Failed to get reading. Try again!')
-    		if (temperature < 20 or temperature > 30 or humidity < 30 or humidity > 50):
-			GPIO.output(5, 1)
-			print ("Warning")
-    		else:   	
-			GPIO.output(5, 0)
 except KeyboardInterrupt:
 	GPIO.cleanup()
 	exit
